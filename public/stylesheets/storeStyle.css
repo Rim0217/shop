@@ -1,0 +1,16 @@
+html
+ .eachItem{
+ 	float: left;
+ 	width: 30%;
+ 	padding: 30px 10px 70px 125px;
+ }
+ .namePrice{
+ 	color:black;
+ 	text-align: center;
+ }
+ .productName{
+ 	font-size: 30px;
+ }
+ .productPrice{
+
+ }
