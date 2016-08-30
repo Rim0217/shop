@@ -5,7 +5,7 @@ module.exports = function shoppingList(req, res, next){
 		if(err){
 			console.log("Error has occured: %s", err);
 		}else{
-			res.render('shoppingcart', {page_title:"Shopping Cart", data:rows});
+			res.render('shoppingcart', {data:rows});
 		}	
 	});
 };

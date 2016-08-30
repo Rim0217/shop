@@ -8,3 +8,25 @@ html
 	text-align: center;
 	vertical-align: middle;
 }
+.productTableData{
+	width:40%;
+}
+.quantityTableData{
+	width: 20%;
+	text-align: center;
+}
+.product li{
+	display: inline-block;
+	vertical-align: middle;
+	font-weight: bold;
+	font-size: 30px;
+	padding-left: 30px;
+}
+.productImage{
+	width:100px;
+}
+
+.quantity{
+	text-align: center;
+	width:35px;
+}

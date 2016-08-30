@@ -746,6 +746,10 @@ edit content
   -o-transform: translateX(0);
   transform: translateX(0);
 }
+.title{
+  margin-top: 15px;
+  text-align: center;
+}
 
 /* -------------------------------- 
 
