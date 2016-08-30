@@ -36,42 +36,49 @@
 		<!-- Side navigation bar end -->
 
 		<main class="cd-main-content">
-			<div>
+			<table class="list">
 
-				<table class="list">
-					<tr>
-						<th>PRODUCT</th>
-						<th>QUANTITY</th>
-						<th>PRICE</th>
-						<th>     </th>
-					</tr>
-					<% if(data.length) {
-					data.forEach(function(detail){ %>
-					<tr>
-						<td><%= detail.product %></td>
-						<td><%= detail.quantity %></td>
-						<td><%= detail.price %></td>
+				<tr>
+					<th>PRODUCT</th>
+					<th>PRICE</th>
+					<th>QUANTITY</th>
+					<th>
+
+					</th>
+				</tr>
+				<% for(var i = 0; i<data.length; i++){ %>
+				<tr>
+					<td class = "productTableData">
+						<div>
+							<ul class = "product">
+								<li class="productImage"><img src="images/<%= data[i].image_name %>.jpg"></li>
+								<li><%= data[i].name%></li>
+							</ui>
+						</div>										
+					</td>
+
+					<td><%= data[i].price %>원</td>
+					<form id = "editQuantity" method="post" action="../shoppingcart/edit/<%= data[i].id %>">
+						<td class="quantityTableData">
+							<input  class = "quantity" name = "quantity" type = "number" value = "<%= data[i].quantity %>" min="1" max="50">
+						</td>
 						<td>
 							<ul>
-								<li><a class="a-inside edit" href="../shooppingcart/edit/<%= detail.id %>" >Edit</a></li>
-								<li><a class="a-inside delete" href="../shoppingcart/delete/<%= detail.id %>" >Delete</a></li>
-							</ul>	
+								<li><input type="submit" name="submit" value="Edit"></li>
+								<!-- 						<li><a class="a-inside edit" href="../shoppingcart/edit/<%= data[i].id %>">Edit</a></li> -->
+								<li><a class="a-inside delete" href="../shoppingcart/delete/<%= data[i].id %>" >Delete</a></li>					
+							</ul>
 						</td>
-					</tr>
-					<%})%>
-					<%}else{ %>
-
-					<tr>
-						<td colspan="5">NO DATA TO SHOW</td>
-					</tr>
-					<%}%>
-				</table>				
-			</div>
+					</form>			
+				</tr>
+				<%}%>					
+			</table>
 		</main>
-
-		<div>
-			<button onClick="addUser();">Back to Store</button>
-		</div>	
+		<% var result = 0; %>
+		<% for(var i = 0; i<data.length; i++){ %>						
+		<% result = result + (data[i].price * data[i].quantity)%>
+		<%}%>	
+		<h1>Total Price: <%= result %> 원</h1>	
 		<script src="javascripts/jquery-2.1.4.js"></script>
 		<script src="javascripts/main.js"></script> <!-- Resource jQuery -->
 	</body>
