@@ -51,7 +51,7 @@ html.no-js(lang='en')
                   li.productImage
                     img(src='images/#{data[i].image_name}.jpg')
                   li 
-                    a.toDatail(href='../detail/#{data[i].original_id}') #{data[i].name}
+                    a.toDatail(href='../detail/#{data[i].id}') #{data[i].name}
             td #{data[i].price}원
             form.editQuantity(method='post', action='../shoppingcart/edit/#{data[i].id}')
               td.quantityTableData

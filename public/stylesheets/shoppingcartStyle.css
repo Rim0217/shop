@@ -22,6 +22,12 @@ html
 	font-size: 30px;
 	padding-left: 30px;
 }
+.toDatail{
+	color: black;
+}
+.toDatail:hover{
+	color:#b3b3b3;
+}
 .productImage{
 	width:100px;
 }
@@ -29,4 +35,7 @@ html
 .quantity{
 	text-align: center;
 	width:35px;
+}
+.calculation{
+	display:none;
 }

@@ -1,5 +1,17 @@
 html
 
-.productInfo{
+.image{
+	float:left;
+	padding: 100px 50px 0px 150px;
+}
+.information{
+	padding-top: 20%
+}
+.productInfo li{
 	display: inline-block;
+	padding-right:8px;
+	font-weight: bold;
+}
+.addToCart{
+	color:black;
 }
