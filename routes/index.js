@@ -28,7 +28,7 @@ router.get('/shoppingcart/delete/:id', deleteShoppingList); //delete a product f
 
 /*STORE ROUTES*/
 router.get('/store', storeList); //shows the products in the store
-router.get('/store/detail/:id', detailWindow);
+router.get('/detail/:id', detailWindow);
 /*STORE ROUTES*/
 
 module.exports = router;

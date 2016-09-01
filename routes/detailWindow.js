@@ -7,4 +7,4 @@ module.exports = function detailWindow(req, res, next){
 			console.log("Error Displaying the details : %s", err);
 		res.render('showDetail', {data:rows});
 	});
-}
+};
