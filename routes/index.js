@@ -13,6 +13,13 @@ var storeList = require('../routes/storeList');
 var detailWindow = require('../routes/detailWindow');
 /*STORE*/
 
+/*LOGIN and REGISTRATION*/
+var login =	require('../routes/login');
+var registration = require('../routes/registration');
+var newUser = require('../routes/newUser');
+var logout = require('../routes/logout');
+/*LOGIN and REGISTRATION*/
+
 
 /*HOME PAGE*/
 router.get('/', function(req, res, next){
@@ -30,6 +37,14 @@ router.get('/shoppingcart/delete/:id', deleteShoppingList); //delete a product f
 router.get('/store', storeList); //shows the products in the store
 router.get('/detail/:id', detailWindow);
 /*STORE ROUTES*/
+
+/*LOGIN and REGISTRATION ROUTES*/
+router.get('/registration', registration);
+router.post('/newUser', newUser);
+router.get('/login', login);
+router.post('/login', login);
+router.get('/logout', logout)
+/*LOGIN and REGISTRATION ROUTES*/
 
 module.exports = router;
 
