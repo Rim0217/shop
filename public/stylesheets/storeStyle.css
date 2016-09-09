@@ -10,7 +10,17 @@ html
  }
  .productName{
  	font-size: 30px;
+ 	color: black;
+ 	margin-top: 3px;
+ 	margin-bottom: 10px;
  }
+.productName:hover{
+	color: #b3b3b3;
+}
  .productPrice{
-
+ 	margin-top: 3px;
+ 	margin-bottom: 3px;
+ }
+ .addToCart{
+ 	color: black;
  }

@@ -1,23 +1,27 @@
 var express = require('express');
+var session = require('express-session');
 var path = require('path');
-var ejs = require('ejs');
+var jade = require('jade');
 var connection = require('express-myconnection');
-var mysql = require('mysql');
 var logger = require('morgan');
 var routes = require('./routes/index');
-var favicon = require('serve-favicon');
-
+// var favicon = require('serve-favicon');
+var passport = require('passport');
+var async = require('async');
+var flash =require('connect-flash');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var router = express.Router();
 var httpPort = 8000;
+var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 
 var app = express();
 
-
+require('./conf/passport')(passport);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -26,12 +30,30 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash()); //to use flash middleware
 
+
+app.use(session({
+	secret: "HouseFurniture",
+	resave: false,
+	saveUninitialized: false,
+  	cookie: { 
+    maxAge: 60 * 60 * 1000,
+	}
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 app.use('/', routes);
-
-// app.use('/users', users);
-
-
+mongoose.connect("mongodb://localhost/shop", function(error){
+	if(error){
+		console.error('Failed to connect to the Mongo server');
+		console.error(error);
+		throw error;
+	}else{
+		console.log("connected to mongo server");
+	}	
+})
 app.listen(httpPort,function(){
   console.log("Server running on port: "+httpPort);
 })
@@ -69,6 +91,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;

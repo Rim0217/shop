@@ -17,9 +17,8 @@
 </head>
 <body>
 	<header class = "heading">
-
 		<h1 class = "title">HOUSE FURNITURE<h1>
-		</header>
+	</header>
 
 
 		<!-- Side navigation bar -->
@@ -44,13 +43,14 @@
 			<div class="page-container">
 				<div class="storeItems">
 					<% for(var i = 0; i<data.length; i++){ %>
-					<a class="eachItem" href = "#">
-						<img src="images/<%= data[i].image_name %>.jpg">
+					<div class="eachItem" href = "#">
+						<a href = "../store/detail/<%= data[i].id %>"><img src="images/<%= data[i].image_name %>.jpg"></a>
 						<div class="namePrice">
-							<h3 class = "productName"><%= data[i].name %></h3>
+							<a href = "../store/detail/<%= data[i].id %>"><h3 class = "productName"><%= data[i].name %></h3><a>
 							<h3 class = "productPrice"><%= data[i].price %>원</h3>
+							<a class = "addToCart" href = "../shoppingcart/add/<%= data[i].id %>"><i class = "fa fa-shopping-cart">Add into Shopping-cart</i></a>
 						</div>	
-					</a>
+					</div>
 					<% } %>		
 				</div>
 			</div>

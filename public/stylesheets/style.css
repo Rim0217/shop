@@ -746,6 +746,10 @@ edit content
   -o-transform: translateX(0);
   transform: translateX(0);
 }
+.title{
+  margin-top: 15px;
+  text-align: center;
+}
 
 /* -------------------------------- 
 
@@ -756,7 +760,7 @@ main content basic style
   position: relative;
   z-index: 1;
   min-height: 200vh;
-  padding: 187px 0;
+  padding: 195.8px 0;
 }
 
 /* -------------------------------- 
