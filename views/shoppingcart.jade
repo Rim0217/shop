@@ -7,14 +7,34 @@ html.no-js(lang='en')
     link(rel='stylesheet', href='stylesheets/font.css').
     link(rel='stylesheet', href='stylesheets/reset.css').
     link(rel='stylesheet', href='stylesheets/style.css').
+    link(rel='stylesheet', href='stylesheets/bootstrap.css').
     link(rel="stylesheet", href='stylesheets/shoppingcartStyle.css', type='text/css')
-    script(src='javascripts/modernizr.js').
+    link(rel='stylesheet', href='stylesheets/editButton.css')
+    script(src='javascripts/modernizr.js').     
     title SHOPPING CART
+  div.toLogout
+    a(href ='../logout')
+      i.fa.fa-sign-out LOGOUT
+    p.session You are logged in as #{user.local.email}       
   body
+    nav.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+            span.sr-only
+          .navbar-brand(href='#') HOUSE FURNITURE
+        #navbar.collapse.navbar-collapse
+          ul#nav.nav.navbar-nav
+            li
+              a(href='../') Home
+            li
+              a(href='/store') Store
+            li.active
+              a(href='/shoppingcart') Shopping Cart
+            li
+              a(href='/contact') Contact
     header.heading
-      h1.title
-        | HOUSE FURNITURE
-        h1
+      img(src='images/banner1.png')
     // Side navigation bar
     nav.cd-stretchy-nav
       a.cd-nav-trigger(href='#')
@@ -22,14 +42,14 @@ html.no-js(lang='en')
         span(aria-hidden='true')
       ul
         li
-          a.active(href='../')
+          a(href='../')
             span HOME
             // <i class="fa fa-home" aria-hidden="true">
         li
           a(href='../store')
             span STORE
         li
-          a(href='../shoppingcart')
+          a.active(href='../shoppingcart')
             span SHOPPING CART
         li
           a(href='#')
@@ -37,13 +57,15 @@ html.no-js(lang='en')
       span.stretchy-nav-bg(aria-hidden='true')
     // Side navigation bar end
     main.cd-main-content
-      table.list
-        tr
-          th PRODUCT
-          th PRICE
-          th QUANTITY
-          th
-        -for(var i = 0; i<data.length; i++){
+      div.cart
+        table.list
+          tr
+            th PRODUCT
+            th PRICE
+            th QUANTITY
+            th SUM
+            th
+          -for(var i = 0; i<data.length; i++){
           tr
             td.productTableData
               div
@@ -52,25 +74,33 @@ html.no-js(lang='en')
                     img(src='images/#{data[i].image_name}.jpg')
                   li 
                     a.toDatail(href='../detail/#{data[i].id}') #{data[i].name}
-            td #{data[i].price}원
+            td.price #{Number(data[i].price).toLocaleString('en')}원
             form.editQuantity(method='post', action='../shoppingcart/edit/#{data[i].id}')
               td.quantityTableData
-                input.quantity(name='quantity', type='number', value='#{data[i].quantity}', min='1', max='50')
-              td
                 ul
                   li
-                    input(type='submit', name='submit', value='Edit')
+                    input.quantity(name='quantity', type='number', value='#{data[i].quantity}', min='1', max='50')
                   li
-                    a.a-inside.delete(href='../shoppingcart/delete/#{data[i].id}') Delete  
-        -}
-
-    - var result = 0    
-    - for(var i=0; i<data.length; i++){    
-        h1.calculation= result += data[i].price * data[i].quantity
-    -}
-    h1 Total Price: #{result}원
-
-      
+                    input.button(type='submit', name='submit', value='Edit')
+              td.sum #{Number(data[i].price * data[i].quantity).toLocaleString('en')}원      
+              td.deleteButton
+                a.button(href='../shoppingcart/delete/#{data[i].id}') Delete        
+          -}
+          tr
+            td.totalPrice(colspan=6)
+              - var result = 0    
+              - for(var i=0; i<data.length; i++){    
+                  h1.calculation= result += data[i].price * data[i].quantity
+              -}
+              div.total
+                h1 Total Price : #{Number(result).toLocaleString('en')}원
+          tr
+            td(colspan=6)
+              div.buttons
+                a.order(href='../store') BACK TO STORE
+                a.order(href='#') BUY NOW  
+     
     
     script(src='javascripts/jquery-2.1.4.js').
-    script(src='javascripts/main.js').    
+    script(src='javascripts/main.js').
+    script(src='javascripts/bootstrap.js')        

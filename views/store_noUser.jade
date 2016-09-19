@@ -9,13 +9,14 @@ html.no-js(lang='en')
     link(rel='stylesheet', href='stylesheets/style.css').
     link(rel='stylesheet', href='stylesheets/bootstrap.css')
     link(rel='stylesheet', href='stylesheets/storeStyle.css', type='text/css').
-    script(src='javascripts/modernizr.js').
-    script(src='javascripts/jquery-2.1.4.js')       
+    script(src='javascripts/jquery-2.1.4.js')    
+    script(src='javascripts/modernizr.js').    
     title STORE
-  div.toLogout
-    a(href ='../logout')
-      i.fa.fa-sign-out LOGOUT
-    p.session You are logged in as #{user.local.email}       
+  div.regiLogin
+    a.toRegister(href ='../registration')
+      i.fa.fa-user REGISTRATION
+    a.toLogIn(href ='../login')
+      i.fa.fa-sign-in LOGIN       
   body
     nav.navbar.navbar-inverse.navbar-fixed-top
       .container

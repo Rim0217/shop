@@ -1,23 +1,49 @@
 doctype html
 html.no-js(lang='en')
   head
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css', rel='stylesheet')
     link(rel='stylesheet', href='stylesheets/font.css', type='text/css')
     link(rel='stylesheet', href='stylesheets/reset.css')
+    link(rel='stylesheet', href='stylesheets/mainStyle.css')
+    link(rel='stylesheet', href='stylesheets/button.css')
+    link(rel='stylesheet', href='stylesheets/bootstrap.css')
+    link(rel='stylesheet', href="http://allfont.net/allfont.css?fonts=agency-fb")
     // CSS reset
     link(rel='stylesheet', href='stylesheets/style.css')
-    // Resource style
+
+    script(src='javascripts/jquery-2.1.4.js')
     script(src='javascripts/modernizr.js')
     // Modernizr
     title HOME
+  div.regiLogin
+    a.toRegister(href ='../registration')
+      i.fa.fa-user REGISTRATION
+    a.toLogIn(href ='../login')
+      i.fa.fa-sign-in LOGIN
   body
+    nav.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+            span.sr-only Toggle navigation
+          .navbar-brand(href='#') HOUSE FURNITURE
+        #navbar.collapse.navbar-collapse
+          ul#nav.nav.navbar-nav
+            li.active
+              a(href='../') Home
+            li
+              a(href='/store') Store
+            li
+              a(href='/shoppingcart') Shopping Cart
+            li
+              a(href='/contact') Contact 
     header.heading
-      h1.title
-        | HOUSE FURNITURE
-        h1
-    // Side navigation bar
+      img(src='images/banner1.png')
     nav.cd-stretchy-nav
       a.cd-nav-trigger(href='#')
         | Menu
@@ -26,7 +52,7 @@ html.no-js(lang='en')
         li
           a.active(href='../')
             span HOME
-            // <i class="fa fa-home" aria-hidden="true">
+
         li
           a(href='../store')
             span STORE
@@ -39,7 +65,56 @@ html.no-js(lang='en')
       span.stretchy-nav-bg(aria-hidden='true')
     // Side navigation bar end
     main.cd-main-content
-      // main content here
+      .topNews
+        .news
+          |FOR YOUR COZINESS
+        .news
+          |NOW 30% OFF!  
+      a.button(href='/store') More +
+      h3.productWindow PRODUCTS
+      hr.divide
+      .storeItems
+        -for(var i = 0; i<6; i++){
+          .eachItem(href='#')
+            .imageContainer
+              a(href='../detail/#{data[i].id}')
+                img.productImage(src='images/#{data[i].image_name}.jpg')
+              a.addToCart(href='../shoppingcart/add/#{data[i].id}')
+                span.fa.fa-shopping-cart Add into Shopping-cart
+            .namePrice
+              a(href='../detail/#{data[i].id}')
+                h3.productName= data[i].name
+              h3.productPrice #{Number(data[i].price).toLocaleString('en')}원
+        -}
+      .issues
+        h3.event EVENT
+        .eventImage
+            img.eventImage(src='images/support.jpg')
+          h3.explan
+            | 나눔 이벤트
+          p.period 2016년 10월 - 2018년 10월
+          p.detail
+            | 고아원 아이들에게 가구를 후원해주세요!
+            | 각 가구가 100개 이상 판매되었을 경우 해당 가구를 고아원에 후원합니다.    
+        .eachEvent
+          .eventImage
+            img.eventImage(src='images/gift.jpg')
+          h3.explan
+            | 그랜드 오픈 이벤트!
+          p.period 10월 1일 - 10월 31일
+          p.detail
+            | 10월 한달동안 가구를 구입해주신 모든 분들중 100분을 추첨하여 
+            | 5000원권 문화 상품권을 드립니다!    
+        .eachEvent
+          .eventImage
+            img.eventImage(src='images/vips.jpg')
+          h3.explan 
+            | VIPS 외식 상품권 이벤트!
+          p.period 9월 20일 - 10월 20일   
+          p.detail
+            상품 구매 후 후기를 남겨주세요! 
+            추첨을 통해 다섯분께 빕스 오만원권 상품권을 드립니다!
+           
     script(src='javascripts/jquery-2.1.4.js')
     script(src='javascripts/main.js')
-    // Resource jQuery
+    script(src='javascripts/bootstrap.min.js')
