@@ -1,0 +1,32 @@
+html
+
+.login{
+	width: 50%;
+	left: 25%;
+}
+.email{
+	font-size: 20px;
+	font-weight: bold;
+}
+.emailInput{
+	width: 70%;
+}
+.password{
+	font-size: 20px; 
+	font-weight: bold;
+}
+.passwordInput{
+	width:70%;
+}
+.loginButton{
+	text-align: right;
+}
+.button{
+	right: 19%;
+	position: absolute;
+	margin-top: 10px;
+}
+/*.contents{
+	background-color: #f2f2f2;
+	border: solid 1px;
+}*/

@@ -1,0 +1,13 @@
+html
+
+.register{
+	font-size: 20px;
+	text-align:center;
+	width: 900px;
+	padding-left: 200px;
+}
+.head{
+	font-weight: bold;
+	float: left;
+
+}

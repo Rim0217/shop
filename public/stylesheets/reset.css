@@ -42,8 +42,6 @@ q:before, q:after {
 	content: none;
 }
 table {
-	width:80%;
-	left:10%;
 	position: absolute;
 	color:black;
 	padding-top: 100px;

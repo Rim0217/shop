@@ -1,0 +1,131 @@
+html
+
+.storeItems{
+	top:53%;
+	position: absolute;
+	color: black;
+	width: 89%;
+}
+.productWindow{
+	top:50%;
+	margin: 0px;
+	font-size: 30px;
+	color: #404040;
+	position: absolute;
+}
+ .eachItem{
+ 	float: left;
+ 	width: 30%;
+ 	padding: 30px 40px;
+ 	text-align: center;
+ 	border-bottom:1px solid #404040;
+ }
+ .namePrice{
+ 	color:#404040;
+ 	text-align: center;
+ }
+ .productName{
+ 	font-weight: bold;
+ 	font-size: 30px;
+ 	color: #404040;
+ 	margin-top: 3px;
+ 	margin-bottom: 10px;
+ }
+.productName:hover{
+	color: #b3b3b3;
+}
+ .productPrice{
+ 	margin-top: 3px;
+ 	margin-bottom: 3px;
+ }
+ .addToCart{
+ 	color: black;
+ }
+ .button{
+ 	right: 20%;
+   	top: 50%;
+   	position:absolute;
+ }
+ .productImage{
+ 	width: 80%;
+ 	height: 80%;
+ }
+ .imageContainer:hover .productImage{
+ 	opacity: 0.5;
+ }
+ .topNews{
+ 	color: white;
+ 	width: 80%;
+ 	height: 28%;
+ 	position: absolute;
+ 	background: url('../images/sale.jpg');
+ 	background-size: 100% 100%;
+ 	font-weight: bold;
+ 	font-size: 80px;
+ 	font-family: 'Agency FB', arial;
+ 	display: table-cell;
+ 	text-align: center;
+ }
+ .news{
+ 	top: 150px;
+ 	vertical-align: middle;
+ 	position: relative;
+ }
+ .issues{
+ 	width: 18%;
+ 	position: absolute;
+ 	height: 75%;
+ 	color: #404040;
+ 	right: 0px;
+ 	background-color: #f2f2f2;
+ 	text-align: center;
+
+ }
+ .eachEvent{
+ 	padding-top: 20px;
+ }
+ .event{
+ 	text-align: left;
+ }
+ .explan{
+ 	font-size: 15px;
+ }
+ .detail{
+ 	font-size: 12px;
+ 	text-align: left;
+ 	line-height: 1.5;
+ }
+ .period{
+ 	font-weight: bold;
+ 	font-size: 12px;
+ }
+ .divide{
+ 	margin:0px;
+ 	position:absolute;
+ 	width: 80%;
+ 	color: black;
+ 	top: 53%;
+ 	size: 1px;
+ }
+.imageContainer:hover .addToCart{
+	opacity: 1;
+	top: 0;
+	z-index: 500;
+	top:-100px;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	text-align: center;
+}	
+.addToCart{
+	display: block;
+	position: relative;
+	opacity: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	text-align: center;
+}
+.addToCart:hover {
+	color: #808080
+}

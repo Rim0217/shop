@@ -5,6 +5,6 @@ module.exports = function detailWindow(req, res, next){
 	connection.query("SELECT * FROM products WHERE id=?",[id], function(err, rows){
 		if(err)
 			console.log("Error Displaying the details : %s", err);
-		res.render('showDetail', {data:rows});
+		res.render('showDetail', {data:rows, user: req.user});
 	});
 };
