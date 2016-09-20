@@ -1,5 +1,7 @@
 
 var LocalStrategy = require("passport-local").Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
+var configAuth = require('./auth.js');
 var User = require('../routes/user');
 var mongoose = require("mongoose");
 
@@ -20,6 +22,9 @@ module.exports = function(passport){
 		passReqToCallback: true
 	},
 	function(req, email, password, done){
+		var firstName = req.body.firstName;
+		var lastName = req.body.lastName;
+		var userId = req.body.userId;
 		process.nextTick(function(){
 			User.findOne({'local.email': email}, function(err, user){
 				if(err)
@@ -29,7 +34,10 @@ module.exports = function(passport){
 				}else{
 					var newUser = new User();
 
+					newUser.local.firstName = firstName;
+					newUser.local.lastName = lastName;
 					newUser.local.email = email;
+					newUser.local.userId = userId;
 					newUser.local.password = newUser.generateHash(password);
 
 					newUser.save(function(err){
@@ -57,6 +65,39 @@ module.exports = function(passport){
 				return done(null, false, {message: 'Wrong password'});
 
 			return done(null, user);
+		});
+	}));
+
+	passport.use('fb-login', new FacebookStrategy({
+
+		clientID        : configAuth.facebookAuth.clientID,
+        clientSecret    : configAuth.facebookAuth.clientSecret,
+        callbackURL     : configAuth.facebookAuth.callbackURL 
+	},
+
+	function(token, refreshToken, profile, done){
+
+		process.nextTick(function(){
+			User.findOne({ 'facebook.id' : profile.id}, function(err, user){
+				if(err)
+					return done(err);
+				if(user){
+					return done(null, user);
+				}else{
+					var newUser = new User();
+
+					newUser.facebook.id = profile.id;
+					newUser.facebook.token = token;
+					newUser.facebook.name = profile.name.givenName + ' ' + profile.name.familyName;
+					newUser.facebook.email = profile.emails[0].value;
+
+					newUser.save(function(err){
+						if(err)
+							throw err;
+						return done(null, newUser);
+					});
+				}
+			});
 		});
 	}));
 };		

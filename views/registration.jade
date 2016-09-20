@@ -8,7 +8,7 @@ html.no-js(lang='en')
     link(rel='stylesheet', href='stylesheets/reset.css')
     link(rel='stylesheet', href='stylesheets/registrationStyle.css')
     link(rel='stylesheet', href='stylesheets/style.css')
-
+    link(rel='stylesheet', href='stylesheets/button.css')
     script(src='javascripts/modernizr.js')
 
     title REGISTRATION
@@ -37,20 +37,39 @@ html.no-js(lang='en')
       span.stretchy-nav-bg(aria-hidden='true')
     // Side navigation bar end
     main.cd-main-content
-      form.registrationForm(action='../newUser', method='post')
-        table.register
-          tr
-            td.head Email: 
-            td
-              input.email(type='text', name='email')
-          tr
-            td.head Password: 
-            td
-              input.password(type='password', name='password')
-          tr
-            td
-            td    
-              input.submit(type='submit', value='Now Register')
+      .contents
+        h1.inviting
+          i.fa.fa-user REGISTRATION
+        form.registrationForm(action='../newUser', method='post')
+          table.register
+            tr
+              td.firstName First Name 
+            tr  
+              td
+                input.firstNameInput(type='text', name='firstName')
+            tr
+              td.lastName Last Name 
+            tr  
+              td
+                input.lastNameInput(type='text', name='lastName')
+            tr
+              td.userId ID 
+            tr  
+              td
+                input.userIdInput(type='text', name='userId')        
+            tr
+              td.email Email 
+            tr  
+              td
+                input.emailInput(type='text', name='email')
+            tr
+              td.password Password 
+            tr  
+              td
+                input.passwordInput(type='password', name='password')
+            tr
+              td.registerButton(colspan=2)
+                input.button(type='submit', value='Now Register')
     script(src='javascripts/jquery-2.1.4.js')
     script(src='javascripts/main.js')
     // Resource jQuery

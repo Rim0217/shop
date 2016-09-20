@@ -8,6 +8,7 @@ html.no-js(lang='en')
     link(rel='stylesheet', href='stylesheets/reset.css')
     link(rel='stylesheet', href='stylesheets/button.css')
     link(rel='stylesheet', href='stylesheets/loginStyle.css')
+    link(rel='stylesheet', href="http://allfont.net/allfont.css?fonts=agency-fb")
     // CSS reset
     link(rel='stylesheet', href='stylesheets/style.css')
     // Resource style
@@ -39,20 +40,32 @@ html.no-js(lang='en')
       span.stretchy-nav-bg(aria-hidden='true')
     // Side navigation bar end
     main.cd-main-content
-      div.contents
-        form(role = 'form' action='/login', method='post')
+      .contents
+        h1.inviting
+          i.fa.fa-sign-in LOGIN
+        form.registrationForm(action='../login', method='post')
           table.login
             tr
-              td.email Email: 
+              td.email Email 
+            tr  
               td
                 input.emailInput(type='text', name='email')
             tr
-              td.password Password: 
+              td.password Password 
+            tr  
               td
                 input.passwordInput(type='password', name='password')
             tr
-              td.loginButton(colspan=2)    
+              td.loginButton(colspan=2)
+                a.forgotPassword(href="#") Forgot your password?
+                a#regiButton.button(href="../registration") New Register   
                 input.button(type='submit', value='Login')
+            tr
+              td.fbLogin(colspan=2)
+                Login with your Facebook account
+                a.fb(href="../fbAuth")  
+                  i.fa.fa-facebook
+
     script(src='javascripts/jquery-2.1.4.js')
     script(src='javascripts/main.js')
     // Resource jQuery
