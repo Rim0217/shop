@@ -19,6 +19,7 @@ var login =	require('../routes/login');
 var registration = require('../routes/registration');
 var newUser = require('../routes/newUser');
 var logout = require('../routes/logout');
+var fbAuth = require('../routes/fbAuth');
 /*LOGIN and REGISTRATION*/
 
 
@@ -52,8 +53,11 @@ router.get('/registration', registration);
 router.post('/newUser', newUser);
 router.get('/login', login);
 router.post('/login', login);
-router.get('/logout', logout)
+router.get('/logout', logout);
+router.get('/fbAuth', fbAuth);
 /*LOGIN and REGISTRATION ROUTES*/
+
+
 
 module.exports = router;
 

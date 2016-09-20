@@ -3,11 +3,9 @@ var router = express.Router();
 var passport = require('passport');
 var flash    = require('connect-flash');
 
-router.get('/login', function(req, res, next) {
-  	res.render('login');
-});
+router.get('/fbAuth', passport.authenticate('fb-login', {scope: 'email'}));
 
-router.post('/login',passport.authenticate('local-login', { 
+router.get('/fbAuth/callback',passport.authenticate('fb-login', { 
   successRedirect : '/',
   failureRedirect : '/login'
 }));

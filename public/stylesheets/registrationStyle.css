@@ -1,13 +1,67 @@
 html
 
 .register{
-	font-size: 20px;
-	text-align:center;
-	width: 900px;
-	padding-left: 200px;
+	width: 50%;
+	left: 40%;
+	top: 8%;
 }
-.head{
+.register td{
 	font-weight: bold;
-	float: left;
-
+	font-size: 15px;
+}
+.register input{
+	margin-bottom: 10px;
+}
+.email{
+	font-size: 20px;
+}
+.emailInput{
+	width: 40%;
+}
+.password{
+	font-size: 20px; 
+}
+.passwordInput{
+	width:40%;
+}
+.firstName{
+	font-size: 20px;
+}
+.firstNameInput{
+	width: 30%;
+}
+.lastName{
+	font-size: 20px;
+}
+.lastNameInput{
+	width: 30%;
+}
+.userId{
+	font-size: 20px;
+}
+.userIdInput{
+	width: 30%;	
+}
+.registerButton{
+	text-align: left;
+}
+.button{
+	position: absolute;
+	margin-top: 10px;
+}
+.contents{
+	background-color: #f2f2f2;
+	width:80%;
+	left: 10%;
+	position: absolute;
+	height: 30%;
+	top: 20%;
+	border-radius: 80px;
+}
+.inviting{
+	color: #404040;
+	font-weight: bold;
+	left:35%;
+	top:10%;
+	position: absolute;
 }

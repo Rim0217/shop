@@ -2,31 +2,68 @@ html
 
 .login{
 	width: 50%;
-	left: 25%;
+	left: 40%;
+	top: 8%;
+}
+.login td{
+	font-weight: bold;
+	font-size: 15px;
+}
+.login input{
+	margin-bottom: 10px;
 }
 .email{
-	font-size: 20px;
-	font-weight: bold;
+
 }
 .emailInput{
-	width: 70%;
+	width: 40%;
 }
 .password{
-	font-size: 20px; 
-	font-weight: bold;
+
 }
 .passwordInput{
-	width:70%;
-}
-.loginButton{
-	text-align: right;
+	width:40%;
 }
 .button{
-	right: 19%;
+	margin-top: auto;
+	left: 2px;
 	position: absolute;
+}
+.contents{
+	background-color: #f2f2f2;
+	width:80%;
+	left: 10%;
+	position: absolute;
+	height: 30%;
+	top: 20%;
+	border-radius: 80px;
+}
+.forgotPassword{
+	float: left;
+	margin-top: 40px;
+	color: black;
+}
+.forgotPassword:hover{
+	color:#b3b3b3;
+}
+#regiButton{
+	margin-top: auto;
+	margin-left: 70px;
+	left: 2px;
+	height: 29px;
+}
+.inviting{
+	color: #404040;
+	font-weight: bold;
+	left:43%;
+	top:10%;
+	position: absolute;
+}
+.fbLogin{
+	float: left;
 	margin-top: 10px;
 }
-/*.contents{
-	background-color: #f2f2f2;
-	border: solid 1px;
-}*/
+.fb{
+	color:black;
+	font-size: 20px;
+}
